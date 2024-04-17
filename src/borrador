@@ -1,0 +1,21 @@
+ System.out.println();
+                    System.out.println("------------------------------------------------");
+                    System.out.println("Agregue nombre de usuario: ");
+                    String nameUser = entrada.nextLine();
+                    System.out.println("Agregue contraseña: ");
+                    String contra = entrada.nextLine();
+                    Usuario nuevoUsuario = new Usuario(nameUser, contra);
+
+                    boolean usuarioExistente = false;
+                    for (Usuario usuario : getInventario().getListaUsuarios()) {
+                        if (nameUser.equals(usuario.getNameUser())) {
+                            System.out.println("No se permite agregar usuarios repetidos.");
+                            usuarioExistente = true;
+                            break;
+                        }
+                    }
+                    if (!usuarioExistente) {
+                        getInventario().agregarUsuario(nuevoUsuario);
+                        System.out.println("Usuario añadido correctamente.");
+                        System.out.println("------------------------------------------------");
+                    }
